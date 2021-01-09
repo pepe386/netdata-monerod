@@ -94,7 +94,7 @@ class Service(SimpleService):
                 r = requests.post(rpc_url, data=json.dumps(json_data), headers=hdr, timeout=connection_timeout, auth=HTTPDigestAuth(rpc_user, rpc_password))
             except requests.exceptions.RequestException as e: 
                 return None
-            result.append(json.loads(r.text.decode('utf-8')))
+            result.append(json.loads(r.text))
 
         data = dict()
         for i, (_, handler) in enumerate(METHODS.items()):
